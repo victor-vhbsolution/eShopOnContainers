@@ -30,7 +30,7 @@ namespace Microsoft.eShopOnContainers.Services.Ordering.API.Application.Commands
         {
             _mediator = mediator;
             _requestManager = requestManager;
-            _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>

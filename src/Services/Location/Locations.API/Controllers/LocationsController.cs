@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 namespace Locations.API.Controllers
 {
     [Route("api/v1/[controller]")]
-    [Authorize]
     [ApiController]
     public class LocationsController : ControllerBase
     {

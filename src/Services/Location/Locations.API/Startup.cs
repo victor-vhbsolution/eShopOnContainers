@@ -24,7 +24,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace Microsoft.eShopOnContainers.Services.Locations.API
@@ -100,7 +99,7 @@ namespace Microsoft.eShopOnContainers.Services.Locations.API
                 });
             }
 
-            RegisterEventBus(services);
+            //RegisterEventBus(services);
 
             // Add framework services.
             services.AddSwaggerGen(options =>
@@ -113,24 +112,24 @@ namespace Microsoft.eShopOnContainers.Services.Locations.API
                     Description = "The Location Microservice HTTP API. This is a Data-Driven/CRUD microservice sample",
                 });
 
-                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.OAuth2,
-                    Flows = new OpenApiOAuthFlows()
-                    {
-                        Implicit = new OpenApiOAuthFlow()
-                        {
-                            AuthorizationUrl = new Uri($"{Configuration.GetValue<string>("IdentityUrlExternal")}/connect/authorize"),
-                            TokenUrl = new Uri($"{Configuration.GetValue<string>("IdentityUrlExternal")}/connect/token"),
-                            Scopes = new Dictionary<string, string>()
-                            {
-                                { "locations", "Locations API" }
-                            }
-                        }
-                    }
-                });
+                //options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                //{
+                //    Type = SecuritySchemeType.OAuth2,
+                //    Flows = new OpenApiOAuthFlows()
+                //    {
+                //        Implicit = new OpenApiOAuthFlow()
+                //        {
+                //            AuthorizationUrl = new Uri($"{Configuration.GetValue<string>("IdentityUrlExternal")}/connect/authorize"),
+                //            TokenUrl = new Uri($"{Configuration.GetValue<string>("IdentityUrlExternal")}/connect/token"),
+                //            Scopes = new Dictionary<string, string>()
+                //            {
+                //                { "locations", "Locations API" }
+                //            }
+                //        }
+                //    }
+                //});
 
-                options.OperationFilter<AuthorizeCheckOperationFilter>();
+                //options.OperationFilter<AuthorizeCheckOperationFilter>();
 
             });
 
